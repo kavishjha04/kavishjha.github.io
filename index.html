@@ -1,0 +1,1039 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kavish Jha — Engineering Manager & AI Systems Architect</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:        #0A0C0F;
+      --bg-2:      #0F1217;
+      --bg-3:      #151A22;
+      --border:    rgba(255,255,255,0.07);
+      --border-mid:rgba(255,255,255,0.12);
+      --text-1:    #F0F2F5;
+      --text-2:    #8A9BAE;
+      --text-3:    #4A5568;
+      --accent:    #00D4FF;
+      --accent-dim: rgba(0,212,255,0.12);
+      --accent-glow:rgba(0,212,255,0.06);
+      --gold:      #F5A623;
+      --gold-dim:  rgba(245,166,35,0.1);
+      --green:     #00E599;
+      --green-dim: rgba(0,229,153,0.1);
+      --font-sans: 'Space Grotesk', system-ui, sans-serif;
+      --font-mono: 'Space Mono', monospace;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text-1);
+      font-family: var(--font-sans);
+      font-size: 16px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── SCROLLBAR ── */
+    ::-webkit-scrollbar { width: 4px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: var(--border-mid); border-radius: 2px; }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 2.5rem;
+      height: 60px;
+      background: rgba(10,12,15,0.85);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-logo {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      color: var(--accent);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 0.78rem;
+      color: var(--text-2);
+      text-decoration: none;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--text-1); }
+    .nav-cta {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: var(--accent);
+      text-decoration: none;
+      border: 1px solid var(--accent);
+      padding: 0.4rem 1rem;
+      letter-spacing: 0.05em;
+      transition: background 0.2s, color 0.2s;
+    }
+    .nav-cta:hover { background: var(--accent); color: var(--bg); }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100dvh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 7rem 2.5rem 4rem;
+      max-width: 1200px;
+      margin: 0 auto;
+      position: relative;
+    }
+    .hero-tag {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: var(--accent);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .hero-tag::before {
+      content: '';
+      display: inline-block;
+      width: 24px;
+      height: 1px;
+      background: var(--accent);
+    }
+    h1 {
+      font-size: clamp(2.8rem, 6vw, 5.5rem);
+      font-weight: 700;
+      line-height: 1.0;
+      letter-spacing: -0.02em;
+      color: var(--text-1);
+      margin-bottom: 0.5rem;
+    }
+    h1 .name-accent {
+      color: var(--accent);
+    }
+    .hero-role {
+      font-size: clamp(1rem, 2vw, 1.3rem);
+      color: var(--text-2);
+      font-weight: 400;
+      margin-bottom: 2rem;
+      max-width: 640px;
+    }
+    .hero-summary {
+      font-size: 1.05rem;
+      color: var(--text-2);
+      max-width: 600px;
+      line-height: 1.75;
+      margin-bottom: 2.5rem;
+      border-left: 2px solid var(--accent);
+      padding-left: 1.25rem;
+    }
+    .hero-stats {
+      display: flex;
+      gap: 2.5rem;
+      flex-wrap: wrap;
+      margin-bottom: 2.5rem;
+    }
+    .stat {
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
+    }
+    .stat-value {
+      font-family: var(--font-mono);
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--text-1);
+      line-height: 1;
+    }
+    .stat-value span { color: var(--accent); }
+    .stat-label {
+      font-size: 0.72rem;
+      color: var(--text-3);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .stat-divider {
+      width: 1px;
+      background: var(--border);
+      align-self: stretch;
+    }
+    .hero-actions {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .btn-primary {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      background: var(--accent);
+      color: var(--bg);
+      text-decoration: none;
+      padding: 0.75rem 1.75rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      font-weight: 700;
+      transition: opacity 0.2s, transform 0.15s;
+      display: inline-block;
+    }
+    .btn-primary:hover { opacity: 0.88; transform: translateY(-1px); }
+    .btn-ghost {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      background: transparent;
+      color: var(--text-2);
+      text-decoration: none;
+      padding: 0.75rem 1.75rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      border: 1px solid var(--border-mid);
+      transition: border-color 0.2s, color 0.2s;
+      display: inline-block;
+    }
+    .btn-ghost:hover { border-color: var(--text-2); color: var(--text-1); }
+
+    /* ── GRID DECORATION ── */
+    .hero-grid {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(var(--border) 1px, transparent 1px),
+        linear-gradient(90deg, var(--border) 1px, transparent 1px);
+      background-size: 60px 60px;
+      pointer-events: none;
+      mask-image: radial-gradient(ellipse 70% 70% at 80% 50%, black 0%, transparent 70%);
+      opacity: 0.4;
+    }
+
+    /* ── SECTION WRAPPER ── */
+    .section {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 5rem 2.5rem;
+      border-top: 1px solid var(--border);
+    }
+    .section-label {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      color: var(--text-3);
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      margin-bottom: 0.75rem;
+    }
+    .section-title {
+      font-size: clamp(1.6rem, 3vw, 2.4rem);
+      font-weight: 700;
+      color: var(--text-1);
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+      margin-bottom: 3rem;
+    }
+
+    /* ── PROJECTS ── */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5px;
+      background: var(--border);
+    }
+    .project-card {
+      background: var(--bg-2);
+      padding: 2.25rem;
+      position: relative;
+      transition: background 0.2s;
+    }
+    .project-card:hover { background: var(--bg-3); }
+    .project-meta {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1rem;
+      flex-wrap: wrap;
+    }
+    .project-client {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      color: var(--text-3);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+    .project-tag {
+      font-family: var(--font-mono);
+      font-size: 0.62rem;
+      padding: 0.2rem 0.6rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .tag-ai { background: var(--accent-dim); color: var(--accent); }
+    .tag-data { background: var(--gold-dim); color: var(--gold); }
+    .tag-devops { background: var(--green-dim); color: var(--green); }
+    .project-title {
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--text-1);
+      margin-bottom: 0.5rem;
+      line-height: 1.3;
+    }
+    .project-subtitle {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: var(--text-3);
+      margin-bottom: 1.25rem;
+      letter-spacing: 0.05em;
+    }
+    .project-body {
+      font-size: 0.9rem;
+      color: var(--text-2);
+      line-height: 1.75;
+      margin-bottom: 1.5rem;
+    }
+    .project-outcomes {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 1px;
+      background: var(--border);
+      margin-top: 1.25rem;
+    }
+    .outcome {
+      background: var(--bg);
+      padding: 1rem 1.25rem;
+    }
+    .outcome-value {
+      font-family: var(--font-mono);
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--accent);
+      line-height: 1;
+      margin-bottom: 0.3rem;
+    }
+    .outcome-label {
+      font-size: 0.72rem;
+      color: var(--text-3);
+      line-height: 1.4;
+    }
+
+    /* ── EXPERIENCE ── */
+    .timeline {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 2rem;
+      padding: 2.5rem 0;
+      border-bottom: 1px solid var(--border);
+      position: relative;
+    }
+    .timeline-item:last-child { border-bottom: none; }
+    .timeline-left {
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+      padding-top: 0.15rem;
+    }
+    .timeline-dates {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      color: var(--text-3);
+      letter-spacing: 0.08em;
+    }
+    .timeline-company {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-2);
+    }
+    .timeline-location {
+      font-size: 0.72rem;
+      color: var(--text-3);
+    }
+    .timeline-right {}
+    .timeline-role {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--text-1);
+      margin-bottom: 0.75rem;
+      line-height: 1.3;
+    }
+    .timeline-points {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+    .timeline-points li {
+      font-size: 0.88rem;
+      color: var(--text-2);
+      line-height: 1.65;
+      padding-left: 1.1rem;
+      position: relative;
+    }
+    .timeline-points li::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-family: var(--font-mono);
+    }
+    .timeline-highlight {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      background: var(--accent-dim);
+      color: var(--accent);
+      padding: 0.25rem 0.6rem;
+      display: inline-block;
+      margin-top: 0.75rem;
+      letter-spacing: 0.06em;
+    }
+
+    /* ── SKILLS ── */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1px;
+      background: var(--border);
+    }
+    .skill-group {
+      background: var(--bg-2);
+      padding: 1.75rem;
+    }
+    .skill-group-title {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      color: var(--accent);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: 1.1rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .skill-tag {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      color: var(--text-2);
+      background: var(--bg);
+      border: 1px solid var(--border);
+      padding: 0.3rem 0.65rem;
+      letter-spacing: 0.04em;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .skill-tag:hover { border-color: var(--accent); color: var(--accent); }
+
+    /* ── CERTS ── */
+    .certs-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .cert-card {
+      background: var(--bg-2);
+      border: 1px solid var(--border);
+      padding: 1.1rem 1.4rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      transition: border-color 0.2s;
+    }
+    .cert-card:hover { border-color: var(--accent); }
+    .cert-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+      flex-shrink: 0;
+    }
+    .cert-dot.gold { background: var(--gold); }
+    .cert-text {
+      font-size: 0.82rem;
+      color: var(--text-2);
+      line-height: 1.4;
+    }
+    .cert-text strong {
+      display: block;
+      color: var(--text-1);
+      font-weight: 500;
+      font-size: 0.85rem;
+    }
+
+    /* ── EDUCATION ── */
+    .edu-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1px;
+      background: var(--border);
+    }
+    .edu-card {
+      background: var(--bg-2);
+      padding: 1.75rem;
+    }
+    .edu-degree {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text-1);
+      margin-bottom: 0.3rem;
+    }
+    .edu-uni {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: var(--text-3);
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    /* ── CONTACT ── */
+    .contact-block {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: var(--border);
+    }
+    .contact-left {
+      background: var(--bg-2);
+      padding: 3rem;
+    }
+    .contact-right {
+      background: var(--bg-3);
+      padding: 3rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+    .contact-headline {
+      font-size: clamp(1.4rem, 3vw, 2rem);
+      font-weight: 700;
+      color: var(--text-1);
+      line-height: 1.2;
+      margin-bottom: 0.75rem;
+      letter-spacing: -0.02em;
+    }
+    .contact-sub {
+      font-size: 0.9rem;
+      color: var(--text-2);
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+    }
+    .contact-link {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: 0.88rem;
+      color: var(--text-2);
+      text-decoration: none;
+      padding: 0.9rem 1.1rem;
+      border: 1px solid var(--border);
+      background: var(--bg);
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .contact-link:hover { border-color: var(--accent); color: var(--accent); }
+    .contact-link-icon {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: var(--accent);
+      width: 20px;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 1.5rem 2.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .footer-copy {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      color: var(--text-3);
+      letter-spacing: 0.08em;
+    }
+    .footer-stack {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      color: var(--text-3);
+      letter-spacing: 0.05em;
+    }
+
+    /* ── SCROLL REVEAL ── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s cubic-bezier(0.16,1,0.3,1), transform 0.6s cubic-bezier(0.16,1,0.3,1);
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .reveal { opacity: 1; transform: none; transition: none; }
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      nav { padding: 0 1.25rem; }
+      .nav-links { display: none; }
+      .hero { padding: 6rem 1.25rem 3rem; }
+      .section { padding: 3.5rem 1.25rem; }
+      .hero-stats { gap: 1.5rem; }
+      .stat-divider { display: none; }
+      .timeline-item { grid-template-columns: 1fr; gap: 0.5rem; }
+      .timeline-left { flex-direction: row; flex-wrap: wrap; gap: 0.5rem; align-items: center; }
+      .contact-block { grid-template-columns: 1fr; }
+      .contact-left, .contact-right { padding: 2rem 1.25rem; }
+      footer { flex-direction: column; gap: 0.5rem; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">KJ / Portfolio</div>
+  <ul class="nav-links">
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="mailto:kavishjha@gmail.com" class="nav-cta">Hire Me</a>
+</nav>
+
+<!-- HERO -->
+<div style="position:relative; overflow:hidden;">
+  <div class="hero-grid"></div>
+  <section class="hero">
+    <div class="hero-tag">Engineering Manager &amp; AI Systems Architect</div>
+    <h1>Kavish <span class="name-accent">Jha</span></h1>
+    <p class="hero-role">MCP + GitHub Copilot Systems &middot; AWS Redshift &middot; FinTech &amp; Insurance</p>
+    <p class="hero-summary">
+      I build AI systems that solve real problems against live enterprise data — not demos. 
+      Scope business impact first, design the smallest system that fixes the root cause, measure the outcome. 
+      16+ years across FinTech and Insurance.
+    </p>
+    <div class="hero-stats">
+      <div class="stat">
+        <span class="stat-value">16<span>+</span></span>
+        <span class="stat-label">Years Experience</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat">
+        <span class="stat-value">£3.17<span>B</span></span>
+        <span class="stat-label">Risk Identified</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat">
+        <span class="stat-value">95<span>%</span></span>
+        <span class="stat-label">Investigation Time Saved</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat">
+        <span class="stat-value">80<span>%</span></span>
+        <span class="stat-label">Faster Onboarding</span>
+      </div>
+    </div>
+    <div class="hero-actions">
+      <a href="mailto:kavishjha@gmail.com" class="btn-primary">Get in Touch</a>
+      <a href="https://linkedin.com/in/kavishjha" target="_blank" class="btn-ghost">LinkedIn</a>
+    </div>
+  </section>
+</div>
+
+<!-- PROJECTS -->
+<section class="section" id="projects">
+  <div class="section-label reveal">Selected Projects</div>
+  <h2 class="section-title reveal">Systems built. Problems solved.</h2>
+
+  <div class="projects-grid">
+
+    <!-- Project 1 -->
+    <div class="project-card reveal">
+      <div class="project-meta">
+        <span class="project-client">Coforge &middot; Lloyd's of London</span>
+        <span class="project-tag tag-ai">AI / MCP</span>
+        <span class="project-tag tag-data">Data</span>
+      </div>
+      <h3 class="project-title">MOSAIC AI Data Assistant</h3>
+      <p class="project-subtitle">Natural Language Query System over Live Redshift &middot; Solo Architect &amp; Developer &middot; 2025-2026</p>
+      <p class="project-body">
+        A 200+ table Lloyd's insurance platform had no AI-assisted investigation capability. Each data quality investigation required 4-6 hours of manual SQL scripting, with 8+ investigations per month consuming weeks of reactive analysis.
+        <br><br>
+        Designed a multi-layer AI system: custom Python MCP server with 10 sandboxed read-only tools over live Redshift, integrated with GitHub Copilot SDK and a Chainlit conversational UI. Built 5 specialised agents instead of 1 generic agent — accepting higher maintenance overhead in exchange for 10x domain accuracy across schema introspection, data quality, and pipeline health. Multi-provider LLM abstraction (Claude / GPT-4o / Bedrock / Ollama) to hedge vendor lock-in and optimise cost-quality per query type.
+        <br><br>
+        Built a self-maintaining knowledge system (Knowledge Scanner + Self-Heal agent) that auto-corrects instruction drift — system accuracy improves over time without manual intervention.
+      </p>
+      <div class="project-outcomes">
+        <div class="outcome">
+          <div class="outcome-value">£3.17B</div>
+          <div class="outcome-label">Incorrectly reported premiums identified across 3,250 policies — in a single session</div>
+        </div>
+        <div class="outcome">
+          <div class="outcome-value">95%</div>
+          <div class="outcome-label">Faster data quality investigations across 13 documented findings in 4 months</div>
+        </div>
+        <div class="outcome">
+          <div class="outcome-value">3+ days</div>
+          <div class="outcome-label">Previous manual effort now done in one AI-assisted session</div>
+        </div>
+        <div class="outcome">
+          <div class="outcome-value">10x</div>
+          <div class="outcome-label">Domain accuracy vs. generic single-agent approach</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Project 2 -->
+    <div class="project-card reveal">
+      <div class="project-meta">
+        <span class="project-client">Coforge &middot; XFI-to-Redshift Pipeline</span>
+        <span class="project-tag tag-ai">AI Prompt Engineering</span>
+        <span class="project-tag tag-data">ETL</span>
+      </div>
+      <h3 class="project-title">Undocumented ETL Codebase Reverse-Engineering</h3>
+      <p class="project-subtitle">40,000 Lines Decoded in Under 1 Day &middot; Solo Investigator &middot; 2025</p>
+      <p class="project-body">
+        Inherited a 40+ file Python ETL codebase with zero documentation — 22 transaction types, ~7,000 column mappings, 90 staging tables to 115 silver tables. New team members were taking 2-4 weeks to become productive.
+        <br><br>
+        Developed a structured 3-pass AI prompt strategy: Pass 1 — skeleton extraction (file roles, entry points, dependency graph). Pass 2 — deep mapping (every column transformation, business rule, SCD Type 2 pattern). Pass 3 — validation (cross-reference extracted mappings against live Redshift data to catch AI hallucinations). Accepted 85-90% automation accuracy with manual verification on edge cases versus 100% manual review at 10x the time.
+      </p>
+      <div class="project-outcomes">
+        <div class="outcome">
+          <div class="outcome-value">&lt;1 day</div>
+          <div class="outcome-label">Full architecture documentation for 40k-line codebase</div>
+        </div>
+        <div class="outcome">
+          <div class="outcome-value">80%</div>
+          <div class="outcome-label">Reduction in new joiner onboarding time (2-4 weeks to immediate)</div>
+        </div>
+        <div class="outcome">
+          <div class="outcome-value">0</div>
+          <div class="outcome-label">Schema-misalignment incidents over 4+ months post-deployment</div>
+        </div>
+        <div class="outcome">
+          <div class="outcome-value">7-step</div>
+          <div class="outcome-label">Deployment checklist created and adopted across the team</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Project 3 -->
+    <div class="project-card reveal">
+      <div class="project-meta">
+        <span class="project-client">Coforge &middot; Internal Tooling</span>
+        <span class="project-tag tag-ai">Automation</span>
+        <span class="project-tag tag-devops">DevOps</span>
+      </div>
+      <h3 class="project-title">AI-Augmented Engineering Workflows</h3>
+      <p class="project-subtitle">Jira Automation + Reusable Copilot Skills &middot; 2025-2026</p>
+      <p class="project-body">
+        Identified Jira ticket creation as an 8-minute team bottleneck. Designed end-to-end automation using Atlassian MCP + Copilot Skills + Python REST API — reduced to ~1.5 minutes with enforced ADF-structured descriptions and auto-filled custom fields.
+        <br><br>
+        Abstracted repeated ad-hoc review patterns into 4 reusable domain-specific Copilot Skills: code-review, TDD-writer, prompt-master, and jira-creator. Standardised AI-assisted workflows for SQL review, technical design docs, and ticket creation across the team.
+      </p>
+      <div class="project-outcomes">
+        <div class="outcome">
+          <div class="outcome-value">75%</div>
+          <div class="outcome-label">Reduction in Jira ticket creation time (8 min to ~1.5 min)</div>
+        </div>
+        <div class="outcome">
+          <div class="outcome-value">4</div>
+          <div class="outcome-label">Reusable Copilot Skills shipped and adopted by the team</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section class="section" id="experience">
+  <div class="section-label reveal">Work History</div>
+  <h2 class="section-title reveal">16 years of delivery.</h2>
+
+  <div class="timeline">
+
+    <div class="timeline-item reveal">
+      <div class="timeline-left">
+        <span class="timeline-dates">May 2025 — Present</span>
+        <span class="timeline-company">Coforge</span>
+        <span class="timeline-location">Noida, India</span>
+      </div>
+      <div class="timeline-right">
+        <div class="timeline-role">Senior Engineering Manager</div>
+        <ul class="timeline-points">
+          <li>Own a 200+ table Lloyd's insurance data platform across 4 Redshift schemas, generating ASTA regulatory feed data for ~£10B+ in premium</li>
+          <li>Architect and deploy MOSAIC AI Data Assistant — multi-agent MCP system identifying £3.17B in incorrectly reported premiums</li>
+          <li>Design and ship reusable Copilot Skills for code-review, TDD, prompt engineering, and Jira automation</li>
+          <li>Built self-heal loop (Knowledge Scanner + AI agent) — system accuracy improves autonomously over time</li>
+        </ul>
+        <span class="timeline-highlight">MCP &middot; GitHub Copilot SDK &middot; AWS Redshift &middot; Chainlit &middot; Multi-Agent AI</span>
+      </div>
+    </div>
+
+    <div class="timeline-item reveal">
+      <div class="timeline-left">
+        <span class="timeline-dates">Aug 2022 — May 2025</span>
+        <span class="timeline-company">Coforge</span>
+        <span class="timeline-location">Noida, India</span>
+      </div>
+      <div class="timeline-right">
+        <div class="timeline-role">Senior Technology Manager</div>
+        <ul class="timeline-points">
+          <li>Spearheaded GitLab migration and DevOps maturity for SEI Wealth Management — 30% efficiency gain across 2 major product releases</li>
+          <li>Delivered end-to-end solutions across 12+ clients in WealthTech, Banking, and Insurance across US, Europe, and APAC</li>
+          <li>Led 20+ engineers across 3 geographies, meeting 4 consecutive milestones on time through Agile coaching and stakeholder alignment</li>
+        </ul>
+        <span class="timeline-highlight">Jenkins &middot; Docker &middot; Kubernetes &middot; Ansible &middot; SAFe</span>
+      </div>
+    </div>
+
+    <div class="timeline-item reveal">
+      <div class="timeline-left">
+        <span class="timeline-dates">Oct 2021 — Aug 2022</span>
+        <span class="timeline-company">NAYAN</span>
+        <span class="timeline-location">New Delhi, India</span>
+      </div>
+      <div class="timeline-right">
+        <div class="timeline-role">Senior Technical Project Manager</div>
+        <ul class="timeline-points">
+          <li>Directed AI/ML and Computer Vision engineers deploying production solutions contributing to 20% revenue growth</li>
+          <li>Built proactive Risk Management framework using RAID analysis, mitigating 30% of potential project issues</li>
+        </ul>
+        <span class="timeline-highlight">AI/ML &middot; Computer Vision &middot; RAID Framework</span>
+      </div>
+    </div>
+
+    <div class="timeline-item reveal">
+      <div class="timeline-left">
+        <span class="timeline-dates">Oct 2010 — Oct 2021</span>
+        <span class="timeline-company">NIIT Technologies</span>
+        <span class="timeline-location">Noida + US / Europe / APAC</span>
+      </div>
+      <div class="timeline-right">
+        <div class="timeline-role">Technical Architect / Scrum Master</div>
+        <ul class="timeline-points">
+          <li>11 years at SEI Investments delivering WealthTech platform solutions across CAS, ADE, ADS, IP, PME modules</li>
+          <li>97% on-time delivery across sprint cycles; PI planning and Scrum of Scrums in SAFe environment</li>
+          <li>90% PI milestone accuracy; drove 30% delivery efficiency gain</li>
+          <li>Led major ADS and Loader migrations end-to-end — UAT, staging, and production environments</li>
+        </ul>
+        <span class="timeline-highlight">SAFe &middot; CSM &middot; CSPO &middot; WealthTech &middot; System Integration</span>
+      </div>
+    </div>
+
+    <div class="timeline-item reveal">
+      <div class="timeline-left">
+        <span class="timeline-dates">2006 — 2010</span>
+        <span class="timeline-company">TSYS &middot; Max Life</span>
+        <span class="timeline-location">India</span>
+      </div>
+      <div class="timeline-right">
+        <div class="timeline-role">Software Analyst</div>
+        <ul class="timeline-points">
+          <li>TSYS Card Tech: Compliance changes for MasterCard/Visa/AMEX across 92 global clients</li>
+          <li>Max Life Insurance: Oracle ETL pipeline redesign for New York Life data warehouse</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section class="section" id="skills">
+  <div class="section-label reveal">Technical Stack</div>
+  <h2 class="section-title reveal">What I build with.</h2>
+
+  <div class="skills-grid reveal">
+    <div class="skill-group">
+      <div class="skill-group-title">AI Systems</div>
+      <div class="skill-tags">
+        <span class="skill-tag">MCP</span>
+        <span class="skill-tag">FastMCP</span>
+        <span class="skill-tag">GitHub Copilot SDK</span>
+        <span class="skill-tag">Chainlit</span>
+        <span class="skill-tag">Multi-Agent Loops</span>
+        <span class="skill-tag">Prompt Engineering</span>
+        <span class="skill-tag">Agentic AI</span>
+        <span class="skill-tag">Claude</span>
+        <span class="skill-tag">GPT-4o</span>
+        <span class="skill-tag">Bedrock</span>
+        <span class="skill-tag">Ollama</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <div class="skill-group-title">Cloud &amp; Data</div>
+      <div class="skill-tags">
+        <span class="skill-tag">AWS Redshift</span>
+        <span class="skill-tag">Lambda</span>
+        <span class="skill-tag">Glue / PySpark</span>
+        <span class="skill-tag">Step Functions</span>
+        <span class="skill-tag">S3</span>
+        <span class="skill-tag">DynamoDB</span>
+        <span class="skill-tag">SCD Type 2</span>
+        <span class="skill-tag">ETL / ELT</span>
+        <span class="skill-tag">Data Quality</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <div class="skill-group-title">Engineering</div>
+      <div class="skill-tags">
+        <span class="skill-tag">Python 3.9+</span>
+        <span class="skill-tag">SQL</span>
+        <span class="skill-tag">Terraform</span>
+        <span class="skill-tag">Liquibase</span>
+        <span class="skill-tag">GitHub Actions</span>
+        <span class="skill-tag">GitLab CI</span>
+        <span class="skill-tag">Docker</span>
+        <span class="skill-tag">Kubernetes</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <div class="skill-group-title">Delivery &amp; Leadership</div>
+      <div class="skill-tags">
+        <span class="skill-tag">SAFe</span>
+        <span class="skill-tag">Scrum (CSM / CSPO)</span>
+        <span class="skill-tag">PI Planning</span>
+        <span class="skill-tag">Cross-geo Teams</span>
+        <span class="skill-tag">Stakeholder Management</span>
+        <span class="skill-tag">US / Europe / APAC</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Certifications -->
+  <div style="margin-top: 3rem;">
+    <div class="section-label reveal" style="margin-bottom:1rem;">Certifications</div>
+    <div class="certs-row reveal">
+      <div class="cert-card">
+        <div class="cert-dot"></div>
+        <div class="cert-text">
+          <strong>GitHub Copilot (GH-300)</strong>
+          In Progress — 2026
+        </div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-dot gold"></div>
+        <div class="cert-text">
+          <strong>Certified Scrum Master (CSM)</strong>
+          Scrum Alliance
+        </div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-dot gold"></div>
+        <div class="cert-text">
+          <strong>Certified Scrum Product Owner (CSPO)</strong>
+          Scrum Alliance
+        </div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-dot"></div>
+        <div class="cert-text">
+          <strong>IBM Blockchain Essentials</strong>
+          IBM
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Education -->
+  <div style="margin-top: 3rem;">
+    <div class="section-label reveal" style="margin-bottom:1rem;">Education</div>
+    <div class="edu-grid reveal">
+      <div class="edu-card">
+        <div class="edu-degree">MCA, Computer Programming</div>
+        <div class="edu-uni">Punjab Technical University</div>
+      </div>
+      <div class="edu-card">
+        <div class="edu-degree">MSc, Data Modelling &amp; Warehousing</div>
+        <div class="edu-uni">Sikkim Manipal University</div>
+      </div>
+      <div class="edu-card">
+        <div class="edu-degree">BCom, Business Statistics &amp; Accounting</div>
+        <div class="edu-uni">Bundelkhand University &middot; 2000-2003</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="section" id="contact" style="padding-bottom: 0;">
+  <div class="contact-block reveal">
+    <div class="contact-left">
+      <h2 class="contact-headline">Building something that needs real AI — not a demo?</h2>
+      <p class="contact-sub">
+        I take end-to-end ownership: from identifying the bottleneck, to architecting the solution, to measuring the outcome. Every system is documented, tested, and transferable.
+      </p>
+      <a href="mailto:kavishjha@gmail.com" class="btn-primary">kavishjha@gmail.com</a>
+    </div>
+    <div class="contact-right">
+      <a href="tel:+919540963700" class="contact-link">
+        <span class="contact-link-icon">TEL</span>
+        +91 9540963700
+      </a>
+      <a href="mailto:kavishjha@gmail.com" class="contact-link">
+        <span class="contact-link-icon">@</span>
+        kavishjha@gmail.com
+      </a>
+      <a href="https://linkedin.com/in/kavishjha" target="_blank" class="contact-link">
+        <span class="contact-link-icon">LI</span>
+        linkedin.com/in/kavishjha
+      </a>
+      <div class="contact-link" style="cursor:default;">
+        <span class="contact-link-icon">LOC</span>
+        Noida, India
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-copy">Kavish Jha &middot; 2026</div>
+  <div class="footer-stack">Python &middot; MCP &middot; AWS Redshift &middot; GitHub Copilot SDK</div>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => entry.target.classList.add('visible'), i * 60);
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.08 }
+  );
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
